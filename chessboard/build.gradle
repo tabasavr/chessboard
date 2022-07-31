@@ -52,3 +52,22 @@ dependencies {
     // Foundation (Border, Background, Box, Image, Scroll, shapes, animations, etc.)
     implementation 'androidx.compose.foundation:foundation:1.2.0'
 }
+
+task javadoc(type: Javadoc) {
+    source = android.sourceSets.main.java.srcDirs
+    classpath += project.files(android.getBootClasspath().join(File.pathSeparator))
+}
+
+task javadocJar(type: Jar, dependsOn: javadoc) {
+    archiveClassifier.set("javadoc")
+    from javadoc.destinationDir
+}
+
+task sourcesJar(type: Jar) {
+    archiveClassifier.set("sources")
+    from android.sourceSets.main.java.srcDirs
+}
+
+artifacts {
+    archives javadocJar, sourcesJar
+}
