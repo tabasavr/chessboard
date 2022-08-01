@@ -10,6 +10,12 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.tooling.preview.Preview
 
+/**
+ * Chess board composable
+ * @param boardData Description of pieces on the board. First array corresponds to the first row
+ * @param modifier Modifier used to adjust the layout algorithm or draw decoration content (ex.
+ * background)
+ */
 @Composable
 fun Board(boardData: Array<Array<Piece>>, modifier: Modifier = Modifier) {
     val lightColor = Color(0xff422e2f)
