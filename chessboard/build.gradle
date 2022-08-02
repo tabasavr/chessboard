@@ -1,6 +1,7 @@
 plugins {
     id 'com.android.library'
     id 'org.jetbrains.kotlin.android'
+    id "org.jetbrains.dokka"
 }
 
 android {
@@ -53,14 +54,9 @@ dependencies {
     implementation 'androidx.compose.foundation:foundation:1.2.0'
 }
 
-task javadoc(type: Javadoc) {
-    source = android.sourceSets.main.java.srcDirs
-    classpath += project.files(android.getBootClasspath().join(File.pathSeparator))
-}
-
-task javadocJar(type: Jar, dependsOn: javadoc) {
+task javadocJar(type: Jar, dependsOn: dokkaJavadoc) {
     archiveClassifier.set("javadoc")
-    from javadoc.destinationDir
+    from dokkaJavadoc
 }
 
 task sourcesJar(type: Jar) {
