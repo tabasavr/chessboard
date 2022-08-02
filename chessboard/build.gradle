@@ -5,6 +5,8 @@ plugins {
 }
 
 android {
+    namespace = "dev.rsbat.chessboard"
+
     compileSdk 32
 
     defaultConfig {
