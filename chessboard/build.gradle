@@ -38,6 +38,12 @@ android {
     composeOptions {
         kotlinCompilerExtensionVersion '1.3.0-rc01'
     }
+
+    publishing {
+        singleVariant("release") {
+
+        }
+    }
 }
 
 dependencies {
