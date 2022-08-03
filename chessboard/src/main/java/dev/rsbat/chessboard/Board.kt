@@ -18,13 +18,13 @@ import androidx.compose.ui.tooling.preview.Preview
  */
 @Composable
 fun Board(boardData: Array<Array<Piece>>, modifier: Modifier = Modifier) {
-    val lightColor = Color(0xff422e2f)
-    val darkColor = Color(0xfffef5e4)
+    val lightColor = Color(0xfffef5e4)
+    val darkColor = Color(0xff422e2f)
     Column(modifier = modifier) {
         for (rowIdx in 7 downTo 0) {
             Row {
                 for (colIdx in 0 until 8) {
-                    val isLightSquare = (rowIdx + colIdx) % 2 == 1
+                    val isLightSquare = (rowIdx + colIdx) % 2 == 0
                     val squareColor = if (isLightSquare) lightColor else darkColor
                     Box(
                         modifier = Modifier
