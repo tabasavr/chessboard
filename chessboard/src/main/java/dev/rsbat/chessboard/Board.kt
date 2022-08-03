@@ -19,7 +19,7 @@ import androidx.compose.ui.tooling.preview.Preview
 @Composable
 fun Board(boardData: Array<Array<Piece>>, modifier: Modifier = Modifier) {
     val lightColor = Color(0xfffef5e4)
-    val darkColor = Color(0xff422e2f)
+    val darkColor = Color(0xFF533F26)
     Column(modifier = modifier) {
         for (rowIdx in 7 downTo 0) {
             Row {
