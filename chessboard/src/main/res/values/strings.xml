@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="piece_none">Empty square</string>
+
+    <string name="piece_white_bishop">White bishop</string>
+    <string name="piece_white_king">White king</string>
+    <string name="piece_white_knight">White knight</string>
+    <string name="piece_white_pawn">White pawn</string>
+    <string name="piece_white_queen">White queen</string>
+    <string name="piece_white_rook">White rook</string>
+
+    <string name="piece_black_bishop">Black bishop</string>
+    <string name="piece_black_king">Black king</string>
+    <string name="piece_black_knight">Black knight</string>
+    <string name="piece_black_pawn">Black pawn</string>
+    <string name="piece_black_queen">Black queen</string>
+    <string name="piece_black_rook">Black rook</string>
+</resources>

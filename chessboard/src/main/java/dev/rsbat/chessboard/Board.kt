@@ -9,6 +9,7 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.platform.testTag
 import androidx.compose.ui.res.painterResource
+import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.tooling.preview.Preview
 
 /**
@@ -36,9 +37,10 @@ fun Board(boardData: Array<Array<Piece>>, modifier: Modifier = Modifier) {
                                 it.testTag("row $rowIdx col $colIdx")
                             } else { it } }
                     ) {
+                        val piece = boardData[rowIdx][colIdx]
                         Image(
-                            painter = painterResource(id = boardData[rowIdx][colIdx].drawableRes),
-                            contentDescription = "Bishop",
+                            painter = painterResource(id = piece.drawableRes),
+                            contentDescription = stringResource(piece.descriptionRes),
                             modifier = Modifier.fillMaxSize(),
                             alignment = Alignment.Center,
                         )
