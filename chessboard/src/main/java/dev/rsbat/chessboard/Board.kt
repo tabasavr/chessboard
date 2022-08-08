@@ -7,6 +7,7 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.platform.testTag
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.tooling.preview.Preview
 
@@ -31,6 +32,9 @@ fun Board(boardData: Array<Array<Piece>>, modifier: Modifier = Modifier) {
                             .weight(1f)
                             .aspectRatio(1f)
                             .background(squareColor)
+                            .let { if (BuildConfig.DEBUG) {
+                                it.testTag("row $rowIdx col $colIdx")
+                            } else { it } }
                     ) {
                         Image(
                             painter = painterResource(id = boardData[rowIdx][colIdx].drawableRes),
