@@ -8,6 +8,7 @@ jobs:
     strategy:
       matrix:
         api-level: [21, 30]
+        arch: [x86_64]
     steps:
       - name: checkout
         uses: actions/checkout@v3
