@@ -133,8 +133,8 @@ publishing {
             def snapshotsRepoUrl = "https://s01.oss.sonatype.org/content/repositories/snapshots/"
             url = android.defaultConfig.versionName.endsWith('SNAPSHOT') ? snapshotsRepoUrl : releasesRepoUrl
             credentials {
-                username = ossrhUsername
-                password = ossrhPassword
+                username = hasProperty("ossrhUsername") ? ossrhUsername : ""
+                password = hasProperty("ossrhPassword") ? ossrhPassword : ""
             }
         }
     }
