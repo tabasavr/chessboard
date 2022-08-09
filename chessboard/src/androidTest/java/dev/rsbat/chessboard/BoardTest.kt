@@ -45,7 +45,8 @@ class BoardTest {
         )
         for ((row, col) in lightSquares) {
             val square = composeTestRule.onNodeWithTag("row $row col $col").captureToImage()
-            assertEquals("Square $row $col", expectedColor, square.toPixelMap()[100, 100])
+            val screenshotColor = square.toPixelMap()[square.width / 2, square.height / 2]
+            assertEquals("Square $row $col", expectedColor, screenshotColor)
         }
     }
 
@@ -68,8 +69,9 @@ class BoardTest {
             7 to 0, 7 to 2, 7 to 4, 7 to 6,
         )
         for ((row, col) in darkSquares) {
-            val cell = composeTestRule.onNodeWithTag("row $row col $col").captureToImage()
-            assertEquals("Square $row $col", expectedColor, cell.toPixelMap()[100, 100])
+            val square = composeTestRule.onNodeWithTag("row $row col $col").captureToImage()
+            val screenshotColor = square.toPixelMap()[square.width / 2, square.height / 2]
+            assertEquals("Square $row $col", expectedColor, screenshotColor)
         }
     }
 }
