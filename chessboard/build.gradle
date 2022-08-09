@@ -49,6 +49,9 @@ android {
         singleVariant("release") {
         }
     }
+    lintOptions {
+        checkTestSources true
+    }
 }
 
 dependencies {
