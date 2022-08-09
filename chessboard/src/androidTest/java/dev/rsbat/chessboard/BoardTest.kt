@@ -5,6 +5,7 @@ import androidx.compose.ui.graphics.toPixelMap
 import androidx.compose.ui.test.*
 import androidx.compose.ui.test.junit4.createComposeRule
 import androidx.test.ext.junit.runners.AndroidJUnit4
+import androidx.test.filters.SdkSuppress
 
 import org.junit.Test
 import org.junit.runner.RunWith
@@ -25,6 +26,7 @@ class BoardTest {
     private val emptyBoard = Array(8) { Array(8) { Piece.None } }
 
     @Test
+    @SdkSuppress(minSdkVersion = 26)
     fun lightSquaresColoredCorrectly() {
         composeTestRule.setContent {
             Board(boardData = emptyBoard)
@@ -48,6 +50,7 @@ class BoardTest {
     }
 
     @Test
+    @SdkSuppress(minSdkVersion = 26)
     fun darkSquaresColoredCorrectly() {
         composeTestRule.setContent {
             Board(boardData = emptyBoard)
