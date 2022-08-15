@@ -14,14 +14,21 @@ import androidx.compose.ui.tooling.preview.Preview
 
 /**
  * Chess board composable
- * @param boardData Description of pieces on the board. First array corresponds to the first row
- * @param modifier Modifier used to adjust the layout algorithm or draw decoration content (ex.
- * background)
+ * @param boardData Description of pieces on the board. First array corresponds to
+ * the first row
+ * @param modifier Modifier used to adjust the layout algorithm or draw decoration
+ * content (ex. background)
+ * @param lightColor Background color of light squares. Default is beige/pale yellow green
+ * @param darkColor Background color of dark squares. Default is
+ * coyote brown/moderate yellowish brown
  */
 @Composable
-fun Board(boardData: Array<Array<Piece>>, modifier: Modifier = Modifier) {
-    val lightColor = Color(0xfffef5e4)
-    val darkColor = Color(0xFF533F26)
+fun Board(
+    boardData: Array<Array<Piece>>,
+    modifier: Modifier = Modifier,
+    lightColor: Color = Color(0xfff5f5dc),
+    darkColor: Color = Color(0xff81613C),
+) {
     Column(modifier = modifier) {
         for (rowIdx in 7 downTo 0) {
             Row {
@@ -54,5 +61,5 @@ fun Board(boardData: Array<Array<Piece>>, modifier: Modifier = Modifier) {
 @Composable
 @Preview
 fun PreviewEmptyBoard() {
-    Board(boardData = Array(8) { Array(8) { Piece.None } })
+    Board(boardData = Array(8) { Array(8) { Piece.BishopBlack } })
 }
