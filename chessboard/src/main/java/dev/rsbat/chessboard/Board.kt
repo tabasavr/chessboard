@@ -36,7 +36,7 @@ fun Board(
     darkColor: Color = Color(0xff81613C),
 ) {
     Column(modifier = modifier) {
-        for (rowIdx in (ROW_COUNT - 1) downTo 0) {
+        for (rowIdx in (0 until ROW_COUNT).reversed()) {
             Row {
                 for (colIdx in 0 until COL_COUNT) {
                     val isLightSquare = (rowIdx + colIdx) % 2 == 0
