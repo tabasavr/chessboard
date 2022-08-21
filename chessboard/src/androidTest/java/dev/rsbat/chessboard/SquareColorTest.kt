@@ -1,5 +1,6 @@
 package dev.rsbat.chessboard
 
+import androidx.annotation.RequiresApi
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.toPixelMap
 import androidx.compose.ui.test.*
@@ -93,6 +94,7 @@ class SquareColorTest {
         checkColors(darkSquares, expectedColor)
     }
 
+    @RequiresApi(26)
     private fun checkColors(positions: List<Pair<Int, Int>>, color: Color) {
         for ((row, col) in positions) {
             val square = composeTestRule.onNodeWithTag("row $row col $col").captureToImage()
