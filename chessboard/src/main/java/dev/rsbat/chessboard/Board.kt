@@ -25,6 +25,7 @@ private const val COL_COUNT = 8
  * @param darkColor Background color of dark squares. Default is
  * coyote brown/moderate yellowish brown
  */
+@Suppress("FunctionNaming")
 @Composable
 fun Board(
     boardData: Array<Array<Piece>>,
@@ -63,6 +64,7 @@ fun Board(
     }
 }
 
+@Suppress("FunctionNaming")
 @Composable
 @Preview
 fun PreviewEmptyBoard() {
