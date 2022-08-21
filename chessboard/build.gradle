@@ -1,7 +1,11 @@
+import io.gitlab.arturbosch.detekt.Detekt
+import io.gitlab.arturbosch.detekt.DetektCreateBaselineTask
+
 plugins {
     id 'com.android.library'
     id 'org.jetbrains.kotlin.android'
     id "org.jetbrains.dokka"
+    id "io.gitlab.arturbosch.detekt"
 
     id "signing"
     id "maven-publish"
@@ -76,6 +80,7 @@ dependencies {
     debugImplementation "androidx.compose.ui:ui-test-manifest:$compose_version"
 }
 
+// Publishing
 task javadocJar(type: Jar, dependsOn: dokkaJavadoc) {
     archiveClassifier.set("javadoc")
     from dokkaJavadoc
@@ -91,3 +96,11 @@ artifacts {
 }
 
 apply from: 'publish.gradle'
+
+// Detekt
+tasks.withType(Detekt).configureEach {
+    jvmTarget = "1.8"
+}
+tasks.withType(DetektCreateBaselineTask).configureEach {
+    jvmTarget = "1.8"
+}
