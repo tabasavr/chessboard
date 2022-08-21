@@ -49,7 +49,7 @@ android {
         singleVariant("release") {
         }
     }
-    lintOptions {
+    lint {
         checkTestSources true
     }
 }
