@@ -12,6 +12,9 @@ import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.tooling.preview.Preview
 
+private const val ROW_COUNT = 8
+private const val COL_COUNT = 8
+
 /**
  * Chess board composable
  * @param boardData Description of pieces on the board. First array corresponds to
@@ -26,13 +29,15 @@ import androidx.compose.ui.tooling.preview.Preview
 fun Board(
     boardData: Array<Array<Piece>>,
     modifier: Modifier = Modifier,
+    @Suppress("MagicNumber")
     lightColor: Color = Color(0xfff5f5dc),
+    @Suppress("MagicNumber")
     darkColor: Color = Color(0xff81613C),
 ) {
     Column(modifier = modifier) {
-        for (rowIdx in 7 downTo 0) {
+        for (rowIdx in (ROW_COUNT - 1) downTo 0) {
             Row {
-                for (colIdx in 0 until 8) {
+                for (colIdx in 0 until COL_COUNT) {
                     val isLightSquare = (rowIdx + colIdx) % 2 == 0
                     val squareColor = if (isLightSquare) lightColor else darkColor
                     Box(
@@ -61,5 +66,5 @@ fun Board(
 @Composable
 @Preview
 fun PreviewEmptyBoard() {
-    Board(boardData = Array(8) { Array(8) { Piece.BishopBlack } })
+    Board(boardData = Array(ROW_COUNT) { Array(COL_COUNT) { Piece.BishopBlack } })
 }
