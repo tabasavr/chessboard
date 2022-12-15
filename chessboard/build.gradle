@@ -104,6 +104,7 @@ detekt {
 
 tasks.withType(Detekt).configureEach {
     jvmTarget = "1.8"
+    basePath = rootProject.projectDir.absolutePath
 
     reports {
         sarif.enabled = true
