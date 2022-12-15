@@ -96,22 +96,3 @@ artifacts {
 }
 
 apply from: 'publish.gradle'
-
-// Detekt
-detekt {
-    buildUponDefaultConfig = true
-}
-
-tasks.withType(Detekt).configureEach {
-    jvmTarget = "1.8"
-    basePath = rootProject.projectDir.absolutePath
-
-    reports {
-        sarif.enabled = true
-        // workaround for https://github.com/detekt/detekt/issues/4192
-        sarif.destination = project.file("build/reports/detekt/detekt.sarif")
-    }
-}
-tasks.withType(DetektCreateBaselineTask).configureEach {
-    jvmTarget = "1.8"
-}

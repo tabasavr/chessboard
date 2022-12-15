@@ -1,4 +1,5 @@
 import io.gitlab.arturbosch.detekt.Detekt
+import io.gitlab.arturbosch.detekt.DetektCreateBaselineTask
 import io.gitlab.arturbosch.detekt.DetektPlugin
 import io.gitlab.arturbosch.detekt.report.ReportMergeTask
 
@@ -26,14 +27,28 @@ tasks.register("reportMerge", ReportMergeTask) {
 }
 
 subprojects {
-    plugins.withType(DetektPlugin) {
-        tasks.withType(Detekt) { detektTask -> // Sadly it has to be eager.
-            finalizedBy(reportMerge)
+    // Detekt
+    detekt {
+        buildUponDefaultConfig = true
+    }
 
-            reportMerge.configure { mergeTask ->
-                mergeTask.input.from(detektTask.sarifReportFile)
-            }
+    tasks.withType(Detekt).configureEach {
+        jvmTarget = "1.8"
+        basePath = rootProject.projectDir.absolutePath
+
+        reports {
+            sarif.enabled = true
+            // workaround for https://github.com/detekt/detekt/issues/4192
+            sarif.destination = project.file("build/reports/detekt/detekt.sarif")
+        }
+        finalizedBy(reportMerge)
+
+        reportMerge.configure { mergeTask ->
+            mergeTask.input.from(detektTask.sarifReportFile)
         }
     }
+
+    tasks.withType(DetektCreateBaselineTask).configureEach {
+        jvmTarget = "1.8"
+    }
 }
-// END Detekt report merging
