@@ -68,10 +68,6 @@ fun Board(
     }
 }
 
-fun foo(str: String?) {
-    println(str!!.length)
-}
-
 @Suppress("FunctionNaming")
 @Composable
 @Preview
