@@ -23,7 +23,7 @@ jobs:
       - name: Run Detekt
         uses: gradle/gradle-build-action@v2
         with:
-          arguments: detekt
+          arguments: detektMain detektTest reportMerge --continue
 
       - name: Upload SARIF to Github using the upload-sarif action
         uses: github/codeql-action/upload-sarif@v2

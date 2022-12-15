@@ -39,8 +39,6 @@ fun Board(
     @Suppress("MagicNumber")
     darkColor: Color = Color(0xff81613C),
 ) {
-    var foo: String? = null
-    foo!!
     Column(modifier = modifier) {
         for (rowIdx in (0 until ROW_COUNT).reversed()) {
             Row {
@@ -68,6 +66,10 @@ fun Board(
             }
         }
     }
+}
+
+fun foo(str: String?) {
+    println(str!!.length)
 }
 
 @Suppress("FunctionNaming")

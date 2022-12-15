@@ -98,6 +98,10 @@ artifacts {
 apply from: 'publish.gradle'
 
 // Detekt
+detekt {
+    buildUponDefaultConfig = true
+}
+
 tasks.withType(Detekt).configureEach {
     jvmTarget = "1.8"
 }
