@@ -97,10 +97,6 @@ artifacts {
 
 apply from: 'publish.gradle'
 
-detekt {
-    basePath = rootProject.projectDir.absolutePath
-}
-
 // Detekt
 tasks.withType(Detekt).configureEach {
     jvmTarget = "1.8"
