@@ -104,6 +104,12 @@ detekt {
 
 tasks.withType(Detekt).configureEach {
     jvmTarget = "1.8"
+
+    reports {
+        sarif.enabled = true
+        // workaround for https://github.com/detekt/detekt/issues/4192
+        sarif.destination = project.file("build/reports/detekt/detekt.sarif")
+    }
 }
 tasks.withType(DetektCreateBaselineTask).configureEach {
     jvmTarget = "1.8"
