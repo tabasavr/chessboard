@@ -75,12 +75,13 @@ dependencies {
 }
 
 // Publishing
-task javadocJar(type: Jar, dependsOn: dokkaJavadoc) {
+def javadocJar = tasks.register("javadocJar", Jar) {
+    dependsOn tasks.named("dokkaJavadoc")
     archiveClassifier.set("javadoc")
     from dokkaJavadoc
 }
 
-task sourcesJar(type: Jar) {
+def sourcesJar = tasks.register("sourcesJar", Jar) {
     archiveClassifier.set("sources")
     from android.sourceSets.main.java.srcDirs
 }
