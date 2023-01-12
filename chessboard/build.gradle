@@ -56,6 +56,10 @@ android {
 }
 
 dependencies {
+    def composeBom = platform('androidx.compose:compose-bom:2022.12.00')
+    implementation composeBom
+    androidTestImplementation composeBom
+
     implementation 'androidx.core:core-ktx:1.9.0'
     implementation 'androidx.appcompat:appcompat:1.6.0'
     testImplementation 'junit:junit:4.13.2'
@@ -63,15 +67,14 @@ dependencies {
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.5.1'
 
     // Compose
-    implementation "androidx.compose.ui:ui:1.3.3"
-    // Tooling support (Previews, etc.)
-    implementation "androidx.compose.ui:ui-tooling:1.3.2"
     // Foundation (Border, Background, Box, Image, Scroll, shapes, animations, etc.)
-    implementation "androidx.compose.foundation:foundation:1.3.1"
+    implementation "androidx.compose.foundation:foundation"
+    // Tooling support (Previews, etc.)
+    implementation "androidx.compose.ui:ui-tooling"
     // Test rules and transitive dependencies:
-    androidTestImplementation "androidx.compose.ui:ui-test-junit4:1.3.2"
+    androidTestImplementation "androidx.compose.ui:ui-test-junit4"
     // Needed for createComposeRule, but not createAndroidComposeRule:
-    debugImplementation "androidx.compose.ui:ui-test-manifest:1.3.2"
+    debugImplementation "androidx.compose.ui:ui-test-manifest"
 }
 
 // Publishing
