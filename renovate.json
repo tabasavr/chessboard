@@ -6,7 +6,8 @@
   "packageRules": [
     {
       "matchPackagePatterns": [
-        "androidx.compose.compiler:compiler"
+        "androidx.compose.compiler:compiler",
+        "composeOptions"
       ],
       "groupName": "kotlin"
     },
