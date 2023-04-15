@@ -79,7 +79,6 @@ dependencies {
 
 // Publishing
 def javadocJar = tasks.register("javadocJar", Jar) {
-    dependsOn tasks.named("dokkaJavadoc")
     archiveClassifier.set("javadoc")
     from dokkaJavadoc
 }
